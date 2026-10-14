@@ -1,16 +1,11 @@
-name: CI
-
+name: ci.yml (DISABLED - billing protection)
 on:
   workflow_dispatch:
-
+permissions:
+  contents: read
 jobs:
-  test:
+  disabled:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - run: npm ci
-      - run: npm run build
-      - run: npm test
+      - run: echo 'Disabled by repository owner to prevent GitHub Actions charges'
